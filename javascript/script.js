@@ -1,5 +1,6 @@
 const playerRPS = "rock";
 const computerSelection = computerPlay();
+let result = 0
 
 function computerPlay() {
     let computerSelection
@@ -23,10 +24,11 @@ function singleRound(playerRPS, computerSelection) {
     } else if (playerRPS === 'ROCK' && computerSelection === 'PAPER') {
         result = 'You Lose! Paper beats Rock';
     } else if (playerRPS === 'ROCK' && computerSelection === 'SCISSORS'){
-        result = 'You win! Rock beats Scissors'
+        result = 'You Win! Rock beats Scissors'
     } else if (playerRPS === 'PAPER' && computerSelection === 'ROCK') {
-        result = 'You win! Paper beats Rock'
-    } else if (playerRPS === 'PAPER' && computerSelection === 'SCISSORS'){q
+        result = 'You Win! Paper beats Rock'
+    } else if (playerRPS === 'PAPER' && computerSelection === 'SCISSORS'){
+        result = 'You Lose! Scissors beats Paper'
     } else if (playerRPS === 'SCISSORS' && computerSelection === 'ROCK') {
         result = 'You Lose! Rock beats Scissors'
     } else if (playerRPS === 'SCISSORS' && computerSelection === 'PAPER') {
@@ -34,6 +36,26 @@ function singleRound(playerRPS, computerSelection) {
     }
     return result;
 }
+
+
+function game(){
+    let wins = 0
+    let losses = 0
+    let ties = 0
+    for (let i = 0; i < 5; i++) {
+        singleRound(playerRPS, computerPlay())
+        if (result.substr(0,5) === 'You L'){
+            losses++
+        } else if (result.substr(0,5) === 'You W'){
+            wins++
+        } else {
+            ties++
+        }
+        console.log(`You currently have ${wins} wins, ${losses} losses and ${ties} ties.`)
+        }
+     }
+     
+
 
 console.log(singleRound(playerRPS, computerSelection));
 
