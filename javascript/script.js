@@ -51,6 +51,7 @@ function game(){
         } else {
             ties++
         }
+        console.log(result)
         console.log(`You currently have ${wins} wins, ${losses} losses and ${ties} ties.`)
         }
      }
