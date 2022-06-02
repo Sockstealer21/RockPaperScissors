@@ -1,5 +1,7 @@
 let playerRPS 
 let result = 0
+let computerSelection = computerPlay()
+
 
 function computerPlay() {
     let computerSelection
@@ -53,5 +55,5 @@ function game(){
         console.log(result)
         console.log(`You currently have ${wins} wins, ${losses} losses and ${ties} ties.`)
         }
-     }
+}
      
