@@ -1,5 +1,4 @@
-const playerRPS = "rock";
-const computerSelection = computerPlay();
+let playerRPS 
 let result = 0
 
 function computerPlay() {
@@ -17,7 +16,7 @@ function computerPlay() {
 
 
 function singleRound(playerRPS, computerSelection) {
-    
+    playerRPS = prompt('Rock, Paper or Scissors?');
     playerRPS = playerRPS.toUpperCase()
     if (playerRPS === computerSelection){    
         result = 'It\'s a tie!';
@@ -56,8 +55,3 @@ function game(){
         }
      }
      
-
-
-console.log(singleRound(playerRPS, computerSelection));
-
-console.log(computerSelection)
