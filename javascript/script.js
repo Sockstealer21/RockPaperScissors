@@ -21,25 +21,22 @@ function singleRound(playerRPS, computerSelection) {
     computerSelection = computerPlay()
     playerRPS = prompt('Rock, Paper or Scissors?');
     playerRPS = playerRPS.toUpperCase()
-    if (playerRPS === computerSelection){    
-        result = 'It\'s a tie!';
+    if (playerRPS === computerSelection){        
+        record.textContent = 'It\'s a tie!';
     } else if (playerRPS === 'ROCK' && computerSelection === 'PAPER') {
-        result = 'You Lose! Paper beats Rock';
+        record.textContent = 'You Lose! Paper beats Rock';
     } else if (playerRPS === 'ROCK' && computerSelection === 'SCISSORS'){
-        result = 'You Win! Rock beats Scissors'
+        record.textContent = 'You Win! Rock beats Scissors'
     } else if (playerRPS === 'PAPER' && computerSelection === 'ROCK') {
-        result = 'You Win! Paper beats Rock'
+        record.textContent = 'You Win! Paper beats Rock'
     } else if (playerRPS === 'PAPER' && computerSelection === 'SCISSORS'){
-        result = 'You Lose! Scissors beats Paper'
+        record.textContent = 'You Lose! Scissors beats Paper'
     } else if (playerRPS === 'SCISSORS' && computerSelection === 'ROCK') {
-        result = 'You Lose! Rock beats Scissors'
+        record.textContent = 'You Lose! Rock beats Scissors'
     } else if (playerRPS === 'SCISSORS' && computerSelection === 'PAPER') {
-        result = 'You Win! Scissors beats Paper'
+        record.textContent = 'You Win! Scissors beats Paper'
     }
-    console.log(result)
 }
-
-
 
 
 
@@ -51,7 +48,7 @@ buttons.forEach((button) => {
 
 
 const record = document.createElement('div');
-record.textContent = 'test'
+record.textContent = 'Results here'
 Container.appendChild(record);
 
 
