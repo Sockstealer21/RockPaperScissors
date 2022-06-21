@@ -19,7 +19,6 @@ function computerPlay() {
 
 function singleRound(playerRPS, computerSelection) {
     computerSelection = computerPlay()
-    playerRPS = prompt('Rock, Paper or Scissors?');
     playerRPS = playerRPS.toUpperCase()
     if (playerRPS === computerSelection){        
         record.textContent = 'It\'s a tie!';
@@ -41,15 +40,20 @@ function singleRound(playerRPS, computerSelection) {
 
 
 const buttons = document.querySelectorAll('button');
+const buttonChoice = document.querySelector('button')
+
+const record = document.createElement('div');
+record.textContent = 'You have not played a game yet. Try clicking one of the buttons!'
+Container.appendChild(record);
 
 buttons.forEach((button) => {
-    button.addEventListener('click', singleRound)
+    button.addEventListener('click', () => {
+        singleRound(button.getAttribute('id'))
+    })  
 });
 
 
-const record = document.createElement('div');
-record.textContent = 'Results here'
-Container.appendChild(record);
+
 
 
 /*
