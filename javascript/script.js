@@ -1,7 +1,9 @@
 let playerRPS = ''
 let result = '' 
 let computerSelection = ''
-
+let wins = 0
+let losses = 0
+let ties = 0
 
 function computerPlay() {
     let computerSelection
@@ -21,29 +23,57 @@ function singleRound(playerRPS, computerSelection) {
     computerSelection = computerPlay()
     playerRPS = playerRPS.toUpperCase()
     if (playerRPS === computerSelection){        
-        record.textContent = 'It\'s a tie!';
+        ties++
+        record.textContent = `Wins:${wins}, Losses:${losses}, Ties:${ties}. It\'s a tie!`;
     } else if (playerRPS === 'ROCK' && computerSelection === 'PAPER') {
-        record.textContent = 'You Lose! Paper beats Rock';
+        losses++
+        record.textContent = `Wins:${wins}, Losses:${losses}, Ties:${ties}. You Lose!\
+         Paper beats Rock`
     } else if (playerRPS === 'ROCK' && computerSelection === 'SCISSORS'){
-        record.textContent = 'You Win! Rock beats Scissors'
+        wins++
+        record.textContent = `Wins:${wins}, Losses:${losses}, Ties:${ties}. You Win!\
+         Rock beats Scissors`
     } else if (playerRPS === 'PAPER' && computerSelection === 'ROCK') {
-        record.textContent = 'You Win! Paper beats Rock'
+        wins++
+        record.textContent = `Wins:${wins}, Losses:${losses}, Ties:${ties}. You Win! \
+        Paper beats Rock`
     } else if (playerRPS === 'PAPER' && computerSelection === 'SCISSORS'){
-        record.textContent = 'You Lose! Scissors beats Paper'
+        losses++
+        record.textContent = `Wins:${wins}, Losses:${losses}, Ties:${ties}. You Lose!\
+         Scissors beats Paper`
     } else if (playerRPS === 'SCISSORS' && computerSelection === 'ROCK') {
-        record.textContent = 'You Lose! Rock beats Scissors'
+        losses++
+        record.textContent = `Wins:${wins}, Losses:${losses}, Ties:${ties}. You Lose!\
+         Rock beats Scissors`
     } else if (playerRPS === 'SCISSORS' && computerSelection === 'PAPER') {
-        record.textContent = 'You Win! Scissors beats Paper'
+        wins++
+        record.textContent = `Wins:${wins}, Losses:${losses}, Ties:${ties}. You Win!\
+         Scissors beats Paper`
     }
+    scoreChecker()
 }
 
+function scoreChecker(){
+    if(wins === 5){
+        record.textContent = `You've won! With ${wins} games to ${losses} games with ${ties} ties.`
+        wins = 0
+        losses = 0
+        ties = 0
+    } else if (losses === 5) {
+        record.textContent = `You've lost! With ${losses} games to ${wins} games with ${ties} ties.`
+        wins = 0
+        losses = 0
+        ties = 0
+    }
+}
 
 
 const buttons = document.querySelectorAll('button');
 const buttonChoice = document.querySelector('button')
 
 const record = document.createElement('div');
-record.textContent = 'You have not played a game yet. Try clicking one of the buttons!'
+record.textContent = 'You have not played a game yet. Try clicking \
+one of the buttons!'
 Container.appendChild(record);
 
 buttons.forEach((button) => {
