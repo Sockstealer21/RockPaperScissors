@@ -1,6 +1,6 @@
-let playerRPS 
-let result = 0
-let computerSelection = computerPlay()
+let playerRPS = ''
+let result = '' 
+let computerSelection = ''
 
 
 function computerPlay() {
@@ -18,6 +18,7 @@ function computerPlay() {
 
 
 function singleRound(playerRPS, computerSelection) {
+    computerSelection = computerPlay()
     playerRPS = prompt('Rock, Paper or Scissors?');
     playerRPS = playerRPS.toUpperCase()
     if (playerRPS === computerSelection){    
@@ -35,9 +36,26 @@ function singleRound(playerRPS, computerSelection) {
     } else if (playerRPS === 'SCISSORS' && computerSelection === 'PAPER') {
         result = 'You Win! Scissors beats Paper'
     }
-    return result;
+    console.log(result)
 }
 
+
+
+
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', singleRound)
+});
+
+
+const record = document.createElement('div');
+record.textContent = 'test'
+Container.appendChild(record);
+
+
+/*
 
 function game(){
     let wins = 0
@@ -57,3 +75,4 @@ function game(){
         }
 }
      
+*/
